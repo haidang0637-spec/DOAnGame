@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Pixel Adventure Web - 2D Platformer</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" type="image/png" href="/assets/Items/Fruits/Apple.png">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="header-bar">
+    <div class="game-title">
+      <img src="/assets/Items/Fruits/Cherries.png" alt="Icon">
+      <span>PIXEL ADVENTURE</span>
+    </div>
+
+    <div class="top-controls">
+      <select id="characterSelect" class="char-select" title="Change Character">
+        <option value="Virtual Guy">Virtual Guy</option>
+        <option value="Mask Dude">Mask Dude</option>
+        <option value="Ninja Frog">Ninja Frog</option>
+        <option value="Pink Man">Pink Man</option>
+      </select>
+
+      <button id="btnPrevLevel" class="btn-pill" title="Previous Level (P)">⏮ PREV</button>
+      <button id="btnNextLevel" class="btn-pill" title="Next Level (N)">NEXT ⏭</button>
+      <button id="btnRestart" class="btn-pill" title="Restart Level (R)">🔄 RESET</button>
+      <button id="btnAudioToggle" class="btn-pill" title="Toggle Sound (M)">🔊 SOUND ON</button>
+    </div>
+  </header>
+
+  <!-- Game Canvas Container -->
+  <main class="canvas-wrapper">
+    <!-- In-Game HUD Overlay -->
+    <div class="hud-overlay">
+      <div class="hud-item level">
+        <span id="hudLevelName">LVL 1</span>
+      </div>
+      <div class="hud-item fruits">
+        <span>🍒</span>
+        <span id="hudFruitCount">0/15</span>
+      </div>
+      <div class="hud-item deaths">
+        <span>💀</span>
+        <span id="hudDeathCount">0</span>
+      </div>
+      <div class="hud-item timer">
+        <span>⏱</span>
+        <span id="hudTimer">0.0s</span>
+      </div>
+    </div>
+
+    <!-- The 512x288 Game Canvas -->
+    <canvas id="gameCanvas" width="512" height="288"></canvas>
+
+    <!-- Victory Modal -->
+    <div id="winModal" class="modal-overlay">
+      <div class="modal-card">
+        <h2 class="modal-title">🎉 LEVEL COMPLETE! 🎉</h2>
+        <p class="modal-text">All delicious fruits have been collected!</p>
+        <div class="modal-stats">
+          <div class="stat-row">Fruits: <span id="winFruitCount">15/15</span></div>
+          <div class="stat-row">Time: <span id="winTime">18.4s</span></div>
+          <div class="stat-row">Deaths: <span id="winDeaths">0</span></div>
+          <div class="stat-row">Score Saved: <span>OK</span></div>
+        </div>
+        <div class="modal-actions">
+          <button id="modalReplayBtn" class="btn-secondary">REPLAY</button>
+          <button id="modalNextBtn" class="btn-primary">CONTINUE ⏭</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Touch Controls -->
+  <section class="mobile-controls">
+    <div class="d-pad">
+      <button id="touchLeft" class="touch-btn">◀</button>
+      <button id="touchRight" class="touch-btn">▶</button>
+      <button id="touchDown" class="touch-btn">▼</button>
+    </div>
+    <div class="action-pad">
+      <button id="touchJump" class="touch-btn">▲</button>
+    </div>
+  </section>
+
+  <!-- Footer Info & Keybindings -->
+  <footer class="footer-bar">
+    <div class="controls-hint">
+      <span><strong>Move:</strong> <span class="key-badge">A</span> <span class="key-badge">D</span> or <span class="key-badge">◀</span> <span class="key-badge">▶</span></span>
+      <span><strong>Jump / Double Jump:</strong> <span class="key-badge">W</span> or <span class="key-badge">SPACE</span></span>
+      <span><strong>Drop Platform:</strong> <span class="key-badge">S</span> + <span class="key-badge">SPACE</span></span>
+      <span><strong>Wall Jump:</strong> Slide down wall + <span class="key-badge">SPACE</span></span>
+    </div>
+    <div class="controls-hint">
+      <span><strong>Fast Switch:</strong> <span class="key-badge">P</span> Prev | <span class="key-badge">N</span> Next | <span class="key-badge">R</span> Restart</span>
+    </div>
+  </footer>
+
+  <!-- Modular Scripts -->
+  <script src="/static/js/audio.js"></script>
+  <script src="/static/js/input.js"></script>
+  <script src="/static/js/sprites.js"></script>
+  <script src="/static/js/physics.js"></script>
+  <script src="/static/js/player.js"></script>
+  <script src="/static/js/entities.js"></script>
+  <script src="/static/js/level.js"></script>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
